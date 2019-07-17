@@ -1,0 +1,14 @@
+
+<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBSSNfANaBmRHddVEodi54Qm2WCsFCY9Dg",
+    authDomain: "territories-74c49.firebaseapp.com",
+    databaseURL: "https://territories-74c49.firebaseio.com",
+    projectId: "territories-74c49",
+    storageBucket: "territories-74c49.appspot.com",
+    messagingSenderId: "424330858494"
+  };
+  firebase.initializeApp(config);
+</script>

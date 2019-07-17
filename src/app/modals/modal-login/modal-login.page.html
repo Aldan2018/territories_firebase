@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><h4>Войдите в свою учетную запись</h4></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-input
+    autofocus=true
+    required=true
+    placeholder="Логин">
+  </ion-input>
+  <ion-input
+    placeholder="Пароль"
+    required=true>
+  </ion-input>
+  <ion-button expand="block" color="success">Войти</ion-button>
+  <div class='register'>
+    <span>
+      Забыли пароль?
+    </span>
+    <span
+    (click)="addModalRegister(); closeModal()">
+      Зарегистрироваться
+    </span>
+  </div>
+</ion-content>

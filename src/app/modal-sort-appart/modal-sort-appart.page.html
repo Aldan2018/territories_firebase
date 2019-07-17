@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h4>
+        Сколько квартир на этаже?
+      </h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-input #floorCapacity type="number" required=true></ion-input>
+  <ion-button
+      (click) = "data.resorting(+floorCapacity.value); closeModal()"
+      color="success"
+      expand='block'
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+  <ion-icon name="checkmark"></ion-icon>
+</ion-button>
+
+</ion-content>

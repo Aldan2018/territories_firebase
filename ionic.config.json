@@ -1,0 +1,8 @@
+{
+  "name": "ministry",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "0cb43db8"
+}

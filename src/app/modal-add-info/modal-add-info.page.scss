@@ -1,0 +1,45 @@
+@import '../../global';
+
+ion-header {
+  width: 90%;
+    h4 {
+      width: max-content;
+      margin: auto;
+    }
+}
+
+ion-content {
+  width: 90%;
+
+  %sample {
+    box-shadow: 1px 1px 3px $color-main;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .nd {
+    @extend %sample;
+    background-color: #fff;
+  }
+
+  .ps {
+    @extend %sample;
+    background-color: limegreen;
+  }
+
+  .ndf {
+    @extend %sample;
+    background-color: royalblue;
+  }
+
+  .no {
+    @extend %sample;
+    background-color: orange;
+  }
+
+  .categorical {
+    @extend %sample;
+    background-color: crimson;
+  }
+}

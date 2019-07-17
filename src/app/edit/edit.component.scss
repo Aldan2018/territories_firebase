@@ -1,0 +1,45 @@
+@import '../../global';
+
+.topHeader {
+  background-color: $color-main;
+}
+.MainTitle {
+  color: $color-light;
+  line-height: 1.5em;
+  margin: auto;
+  width: max-content;
+    p.appartNum {
+      font-size: 0.8em;
+    }
+}
+
+.apartEdit {
+  padding: 10px;
+    textarea {
+      border: none;
+      box-shadow: 3px 3px 10px $color-main;
+      display: block;
+      font-size: 1em;
+      height: 30vw;
+      margin: 5px auto 15px auto;
+      padding: 10px;
+      width: 94%;
+    }
+}
+
+.infoTenant {
+  background-color: lighten($color-main, 45%);
+  border-radius: 5px;
+  height: 100vw;
+  margin: 10px;
+  padding: 10px;
+}
+
+  .infoTenant__date {
+    color: lighten($color-dark, 50%);
+    font-size: 0.5em;
+  }
+
+.myButton {
+  @extend %my_button;
+}

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h4>Информация о квартире</h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <table>
+    <tr (click)='getBgrnd($event)'>
+      <td class="bgrnd nd"></td>
+      <td class="description">Нет дома</td>
+    </tr>
+    <tr (click)='getBgrnd($event)'>
+      <td class="bgrnd ps"></td>
+      <td class="description">Повторное посещение</td>
+    </tr>
+    <tr (click)='getBgrnd($event)'>
+      <td class="bgrnd ndf"></td>
+      <td class="description">Нет домофона</td>
+    </tr>
+    <tr (click)='getBgrnd($event)'>
+      <td class="bgrnd no"></td>
+      <td class="description">Отказ</td>
+    </tr>
+    <tr (click)='getBgrnd($event)'>
+      <td class="bgrnd categorical"></td>
+      <td class="description">Категорический отказ</td>
+    </tr>
+  </table>
+
+</ion-content>

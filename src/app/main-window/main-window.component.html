@@ -1,0 +1,89 @@
+<div class="ion-page" main>
+    <ion-header class="topHeader">
+      <ion-title class="mainTitle">{{title}}</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button class='menuButtonColor'></ion-menu-button>
+      </ion-buttons>
+    </ion-header>
+  
+  <div class="btnContain">
+    <ion-button
+      (click)='dropConv = !dropConv'
+      class="sortBy"
+      color="secondary"
+      fill="solid"
+      shape="round"
+      type="button">
+        <ion-icon name="list" size='large'></ion-icon>
+    </ion-button>
+  
+    <ion-button
+      (click)="presentModalAdd()"
+      class="myButton"
+      fill="solid"
+      shape="round"
+      type="button">
+        <ion-icon name="add" size='large'></ion-icon>
+    </ion-button>
+  
+    <ion-button
+      (click)='this.data.sortingByAdres(); dropConv = false'
+      *ngIf='dropConv'
+      class="sortBy"
+      color="tertiary"
+      fill="solid"
+      shape="round">
+        <ion-icon name="home"></ion-icon>
+    </ion-button>
+    <ion-button
+      (click)='this.data.sortingByPct(); dropConv = false'
+      *ngIf='dropConv'
+      class="sortBy"
+      color="tertiary"
+      fill="solid"
+      shape="round">
+        %
+    </ion-button>
+  </div>
+  
+  
+  
+  <ion-list *ngIf='data.territory' class="terContain" #slidingList>
+    <ion-item-sliding *ngFor="let terr of data.territory; let id = index">
+      <ion-item (click)="folloving(id)"
+                lines="full">
+        <ion-icon class="terIcon" name="home" slot='start'></ion-icon>
+        <ion-text>
+          <h6 class="terText">
+            {{terr.name}}
+          </h6>
+          <ion-note>
+            {{terr.own}}
+          </ion-note>
+        </ion-text>
+        <ion-text slot='end'>
+          <p>
+            {{terr.pct}} %
+          </p>
+        </ion-text>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="delete(); this.data.deleteItem(id)">
+          <ion-icon size='large' name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+  </div>
+  <ion-menu side="end" menuId="first">
+      <ion-content>
+        <ion-list>
+          <ion-item>Администрирование</ion-item>
+          <ion-item
+          (click)='presentModalLogin();'>
+            Войти
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>

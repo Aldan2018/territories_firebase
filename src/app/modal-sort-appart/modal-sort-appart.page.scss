@@ -1,0 +1,29 @@
+@import '../../global';
+
+ion-header {
+  width: 90%;
+    h4 {
+      width: max-content;
+      margin: auto;
+    }
+}
+
+ion-content {
+  width: 90%;
+    p {
+      font-size: 0.9em;
+      margin: auto;
+      width: max-content;
+    }
+    div {
+      margin: auto;
+      width: max-content;
+    }
+    ion-input{
+      border-bottom: 1px solid $color-main;
+      display: block;
+      font-size: 1.5em;
+      margin: 0 auto 10px auto;
+      width: 70px;
+    }
+}

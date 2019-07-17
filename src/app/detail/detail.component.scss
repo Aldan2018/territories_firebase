@@ -1,0 +1,85 @@
+@import '../../global';
+
+.terDetail {
+  background-color: $color-light;
+}
+
+.terDetail__info {
+  padding: 10px 10px 0 10px;
+  height: 40px;
+  p {
+    float: left;
+  }
+  input {
+    border: none;
+    box-shadow: 1px 1px 1px $color-main;
+  }
+}
+.terDetail__apart {
+  margin: 0 auto;
+  overflow: scroll;
+  td {
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px $color-main;
+    height: 12vw;
+    text-align: center;
+    width: 12vw;
+    position: relative;
+      input {
+        left: -3px;
+        position: absolute;
+        top: -3px;
+      }
+  }
+}
+
+.myButton {
+  @extend %my_button;
+}
+
+// .addBgrnd {
+//   background-color: transparentize($color-main, 0.2);
+//   height: 100%;
+//   position: absolute;
+//   width: 100vw;
+//     table {
+//       background-color: $color-main;
+//       border-radius: 5px;
+//       box-shadow: 20px 20px 37px #4a6da7;
+//       color: $color-light;
+//       margin: 150px auto;
+//
+//     }
+// }
+//
+// %sample {
+//   border: 1px solid $color-dark;
+//   border-radius: 5px;
+//   height: 10vw;
+//   width: 10vw;
+// }
+//
+// .nd {
+//   @extend %sample;
+//   background-color: silver;
+// }
+//
+// .ps {
+//   @extend %sample;
+//   background-color: limegreen;
+// }
+//
+// .ndf {
+//   @extend %sample;
+//   background-color: royalblue;
+// }
+//
+// .no {
+//   @extend %sample;
+//   background-color: orange;
+// }
+//
+// .categorical {
+//   @extend %sample;
+//   background-color: crimson;
+// }

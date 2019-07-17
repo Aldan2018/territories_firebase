@@ -1,0 +1,55 @@
+@import '../../global';
+
+ .sortBy {
+   @extend %my_button;
+   float: left;
+  }
+
+ .myButton {
+   @extend %my_button
+  }
+
+  .topHeader {
+    background-color: $color-main;
+    display: flex;
+  }
+  .mainTitle {
+    color: $color-light;
+    padding-left: 10px;
+  }
+  .menuButtonColor {
+    color: $color-light;
+  }
+
+ app-wrapper {
+   height: 100%;
+   overflow: scroll;
+ }
+
+//  wrapper territories
+
+.terContain {
+  margin: 0 auto;
+  overflow: scroll;
+  width: 95vw;
+  ion-item-sliding {
+    margin-bottom: 2px;
+  }
+  ion-item {
+    --background: aliceblue;
+    --border-radius: 10px;
+    --border-width: 0px 1px 2px 0px;
+      // margin-bottom: 3px;
+  }
+  ion-item-option {
+    border-radius: 10px;
+  }
+}
+
+.terIcon {
+  margin-right: 10px;
+}
+
+.terText {
+  margin: 5px 0;
+}

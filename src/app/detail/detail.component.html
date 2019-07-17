@@ -1,0 +1,142 @@
+
+<div class="terDetail">
+  <div class="terDetail__info clearfix">
+    <p *ngIf='!terDetaiNameEdit'>{{this.data.territory[this.data.terrIndex].name}}</p>
+    <!-- изменить адрес -->
+    <p *ngIf='terDetaiNameEdit'>
+      <input [(ngModel)]='this.data.territory[this.data.terrIndex].name' type="text" name="" value="">
+    </p>
+    <!-- Кнопка "Изменить адрес" -->
+    <ion-button
+      *ngIf='!terDetaiNameEdit'
+      (click)="terDetaiNameEdit=true"
+      class='myButton'
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="home"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf='terDetaiNameEdit'
+      (click)="this.dataSave.createJSON(this.data.territory); terDetaiNameEdit=false"
+      class="myButton"
+      color="success"
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </div>
+  <!-- Назначение участка -->
+  <div class="terDetail__info clearfix">
+    <p *ngIf='!terDetaiOwnEdit'>{{this.data.territory[this.data.terrIndex].own}}</p>
+    <p *ngIf='terDetaiOwnEdit'>
+      <input [(ngModel)]='this.data.territory[this.data.terrIndex].own' type="text" name="" value="">
+    </p>
+    <!-- Кнопка "Назначить участок" -->
+    <ion-button
+      *ngIf='!terDetaiOwnEdit'
+      (click)='terDetaiOwnEdit=true'
+      class='myButton'
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="person"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf='terDetaiOwnEdit'
+      (click)="this.dataSave.createJSON(this.data.territory); terDetaiOwnEdit=false"
+      class="myButton"
+      color="success"
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="btnContain">
+    <!-- Добавить квартиры -->
+    <ion-button
+      [disabled]="checked"
+      (click)='presentModalAdd()'
+      class='myButton'
+      color="success"
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="add"></ion-icon>
+    </ion-button>
+    <!-- Сортировать квартиры -->
+    <ion-button
+      (click)='presentModalSort()'
+      class='myButton'
+      fill="solid"
+      name="button"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="apps"></ion-icon>
+    </ion-button>
+    <!-- Удалить квартиры -->
+    <ion-button
+      (click)="data.deleteAppart(arrID); this.arrID = []"
+      [disabled] = '!showDelButton'
+      class="myButton"
+      color="danger"
+      fill="solid"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="trash"></ion-icon>
+    </ion-button>
+    <!-- Выбрать квартиры -->
+    <ion-button
+      (click)="showChecked(); selectOrReady = !selectOrReady"
+      *ngIf='!selectOrReady'
+      class="myButton"
+      fill="solid"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button
+      (click)="showChecked(); selectOrReady = !selectOrReady"
+      *ngIf='selectOrReady'
+      class="myButton"
+      fill="solid"
+      shape="round"
+      size="small"
+      type="button">
+        <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </div>
+</div>
+
+  <!-- appartaments wrapper  -->
+
+<div class="terDetail__apart">
+
+  <table *ngIf='data.territory[data.terrIndex].appartaments'>
+    <tr *ngFor='let floor of data.territory[data.terrIndex].appartaments'>
+      <td #indicator
+      (click)='folloving(indicator.textContent)'
+      *ngFor="let appart of floor"
+      [ngStyle]="{'background-color': appart.color}">{{appart.num}}
+      <input *ngIf='checked' type="checkbox" name="" value="" (change) = getDelIndex(indicator.textContent)>
+    </td>
+  </tr>
+</table>
+
+</div>

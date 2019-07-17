@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h4>Добавить квартиры</h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <span>с </span>
+    <ion-input #firstAppartNum required=true type="number"></ion-input>
+    <span> по </span>
+    <ion-input #lastAppartNum required=true type="number"></ion-input>
+  </div>
+
+  <ion-button
+    (click)="getAppartArray(firstAppartNum.value, lastAppartNum.value); closeModal()"
+    color='success'
+    expand='block'
+    fill="solid"
+    name="button"
+    shape="round"
+    type="button">
+      <ion-icon name="add"></ion-icon>
+  </ion-button>
+
+</ion-content>
