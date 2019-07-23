@@ -96,4 +96,8 @@ export class DetailComponent implements OnInit {
     return await modalInfo.present();
   }
 
+  goBack() {
+    this._rout.navigate(['']);
+  }
+
 }

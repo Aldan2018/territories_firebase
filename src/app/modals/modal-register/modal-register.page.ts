@@ -54,7 +54,7 @@ export class ModalRegisterPage {
    }
 
   getRegister() {
-    this.auth.createUser(this.user.value);
+    this.auth.createUser(this.user.value)
   };
   closeModal() {
     this.modalController.dismiss();

@@ -58,26 +58,14 @@
         </div>
       </ng-container>
     </div>
-
-    <!-- <ion-item>
-      <ion-label position="floating">Придумайте пароль</ion-label>
-      <ion-input>
-      </ion-input>
-    </ion-item> -->
     
     <ion-item>
       <ion-label position="floating">Придумайте пароль</ion-label>
       <ion-input formControlName="password">
       </ion-input>
     </ion-item>
-    <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.password">
-        <div class="error-message" *ngIf="user.get('password').hasError(validation.type) && (user.get('password').dirty || user.get('password').touched)">
-          {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
 
     <button ion-button type="submit" [disabled]='!user.valid'>Зарегистрироваться</button>
+   
   </form>
 </ion-content>

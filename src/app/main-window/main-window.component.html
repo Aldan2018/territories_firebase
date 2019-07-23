@@ -77,13 +77,20 @@
   
   </div>
   <ion-menu side="end" menuId="first">
-      <ion-content>
-        <ion-list>
-          <ion-item>Администрирование</ion-item>
-          <ion-item
+    <ion-content>
+      <ion-header *ngIf='currentUser'>
+        <span>Здравствуйте</span> {{this.currentUser.displayName}} <span>!</span>
+      </ion-header>
+      <ion-list>
+        <ion-item>Администрирование</ion-item>
+        <ion-item
+          *ngIf='!currentUser'
           (click)='presentModalLogin();'>
-            Войти
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
+          Войти
+        </ion-item>
+        <ion-item
+          *ngIf='currentUser'
+          (click)='logout()'>Выйти</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>

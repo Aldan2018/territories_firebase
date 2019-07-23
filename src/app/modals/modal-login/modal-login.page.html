@@ -5,23 +5,42 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-input
-    autofocus=true
-    required=true
-    placeholder="Логин">
-  </ion-input>
-  <ion-input
-    placeholder="Пароль"
-    required=true>
-  </ion-input>
-  <ion-button expand="block" color="success">Войти</ion-button>
-  <div class='register'>
-    <span>
-      Забыли пароль?
-    </span>
-    <span
-    (click)="addModalRegister(); closeModal()">
-      Зарегистрироваться
-    </span>
-  </div>
+  <form [formGroup]="login" (ngSubmit)="getLogin(); closeModal()">
+
+    <ion-input
+      autofocus=true
+      formControlName="eMail"
+      placeholder="E-mail">
+    </ion-input>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.eMail">
+          <div class="error-message" *ngIf="login.get('eMail').hasError(validation.type) && (login.get('eMail').dirty || login.get('eMail').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+    <ion-input
+      placeholder="Пароль"
+      formControlName="password">
+    </ion-input>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div class="error-message" *ngIf="login.get('password').hasError(validation.type) && (login.get('password').dirty || login.get('password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    
+    <button ion-button type="submit" [disabled]='!login.valid'>Войти</button>
+    <div class='register'>
+      <span (click)='whoIsUser()'>
+        Забыли пароль?
+      </span>
+      <span
+      (click)="addModalRegister(); closeModal()">
+        Зарегистрироваться
+      </span>
+    </div>
+  </form>  
 </ion-content>
