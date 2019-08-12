@@ -48,12 +48,12 @@
 
     <ion-item>
       <ion-label position="floating">Адрес электронной почты</ion-label>
-      <ion-input formControlName="eMail">
+      <ion-input formControlName="email">
       </ion-input>
     </ion-item>
     <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.eMail">
-        <div class="error-message" *ngIf="user.get('eMail').hasError(validation.type) && (user.get('eMail').dirty || user.get('eMail').touched)">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message" *ngIf="user.get('email').hasError(validation.type) && (user.get('email').dirty || user.get('email').touched)">
           {{ validation.message }}
         </div>
       </ng-container>

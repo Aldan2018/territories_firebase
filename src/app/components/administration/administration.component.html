@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-title>
+    <ion-toolbar>
+      <h2>Администрирование</h2>
+    </ion-toolbar>
+  </ion-title>
+</ion-header>
+
+<ion-content>
+  <ion-item (click)='goToUserAdmin()'>
+    <ion-label>Управление пользователями</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Удалить аккаунт</ion-label>
+    <ion-button
+      (click)='deleteUser()'
+      color="danger">Удалить аккаунт
+    </ion-button>
+  </ion-item>
+</ion-content>

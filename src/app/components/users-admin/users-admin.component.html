@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-title>
+    <ion-toolbar>
+      <h2>Управление пользователями</h2>
+    </ion-toolbar>
+  </ion-title>
+</ion-header>
+  
+<ion-content *ngIf='user'>
+  <ion-item *ngFor='let user of user; let id = index'>
+    <ion-label>{{user.displayName}}</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="user.isAdmin" (click)='getFollowArray(id)'></ion-checkbox>
+  </ion-item>
+  <ion-button (click)='checkElder()'>Сохранить</ion-button>
+</ion-content>

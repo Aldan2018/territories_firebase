@@ -1,30 +1,39 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Location }                            from '@angular/common';
 import { ModalController }                     from '@ionic/angular';
 
 import { DataManagementService }               from '../data-management.service';
 import { ModalAddInfoPage }                    from '../modal-add-info/modal-add-info.page';
+import { Subscription } from 'rxjs';
+import { IUser } from '../services/auth.service';
+import { LoginLogoutService } from '../services/login-logout.service';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class EditComponent implements OnInit {
+export class EditComponent {
 
   description:string;
   info:string;
   converter:boolean;
   appartNum: string;
+  subscribtions$: Subscription[] = [];
+  currentUser: IUser;
 
   @ViewChild('slidingList') slidingList;
 
   constructor(private location: Location,
               public data: DataManagementService,
-              public modalController: ModalController) { }
-
-
-  ngOnInit() { this.data.getTerrotories(), this.showInfo()  }
+              private isUser: LoginLogoutService,
+              public modalController: ModalController) { 
+                this.subscribtions$[0] = this.isUser.currentUser$.subscribe(res => {
+                  this.currentUser = res;
+                })
+                this.data.getTerrotories(this.currentUser);
+                this.showInfo();
+              }
 
   showInfo() {
     let terr = this.data.territory[this.data.terrIndex].appartaments;

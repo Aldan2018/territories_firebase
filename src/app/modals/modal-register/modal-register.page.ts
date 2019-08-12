@@ -41,7 +41,7 @@ export class ModalRegisterPage {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       headName: ['', Validators.required],
-      eMail: ['', Validators.compose([
+      email: ['', Validators.compose([
         Validators.required,
 	      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])],
@@ -54,8 +54,9 @@ export class ModalRegisterPage {
    }
 
   getRegister() {
-    this.auth.createUser(this.user.value)
+    this.auth.addUser(this.user.value)
   };
+
   closeModal() {
     this.modalController.dismiss();
   };

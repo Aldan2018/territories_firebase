@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, BehaviorSubject, AsyncSubject } from 'rxjs';
+import { IUser } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginLogoutService {
-    // constructor() { }
-    public isUserLogin: Subject<boolean> = new Subject<boolean>();
-    isUserTrue() {
-      this.isUserLogin.next(true);
-    };
-    isUserFalse() {
-      this.isUserLogin.next(false);
-    };
-    getIsUser(): Observable<any> {
-      return this.isUserLogin.asObservable();
-  };
+
+    constructor () { }
+
+    // currentUser: IUser;
+    // currentUser$: BehaviorSubject<IUser> = new BehaviorSubject(null);
+    currentUser$: Subject<IUser> = new Subject<IUser>();
+    
+  //   isUserTrue() {
+  //     this.isUserLogin.next(true);
+  //   };
+  //   isUserFalse() {
+  //     this.isUserLogin.next(false);
+  //   };
+  //   getIsUser(): Observable<any> {
+  //     return this.isUserLogin.asObservable();
+  // };
 }

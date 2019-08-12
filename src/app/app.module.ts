@@ -11,6 +11,7 @@ import { StatusBar }                           from '@ionic-native/status-bar/ng
 import { AngularFireModule }                   from '@angular/fire';
 import { AngularFirestoreModule }              from '@angular/fire/firestore';
 import { AngularFireAuthModule }               from '@angular/fire/auth';
+import { AngularFireDatabaseModule }           from '@angular/fire/database';
 import { environment }                         from '../environments/environment';
 
 import { AppComponent }                        from './app.component';
@@ -28,6 +29,8 @@ import { ModalRegisterPage }                   from './modals/modal-register/mod
 
 import { DataManagementService }               from './data-management.service';
 import { DataSaveService }                     from './data-save.service';
+import { AdministrationComponent }             from './components/administration/administration.component';
+import { UsersAdminComponent }                 from './components/users-admin/users-admin.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { DataSaveService }                     from './data-save.service';
     ModalAddInfoPage,
     ModalSortAppartPage,
     ModalLoginPage,
-    ModalRegisterPage
+    ModalRegisterPage,
+    AdministrationComponent,
+    UsersAdminComponent
   ],
   entryComponents: [ModalAddTerrPage,
                     ModalAddAppartPage,
@@ -57,6 +62,7 @@ import { DataSaveService }                     from './data-save.service';
             AngularFireModule.initializeApp(environment.firebase),
             AngularFirestoreModule, // imports firebase/firestore, only needed for database features
             AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+            AngularFireDatabaseModule
           ],
   providers: [
     DataManagementService,

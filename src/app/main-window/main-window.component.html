@@ -48,7 +48,7 @@
   
   
   
-  <ion-list *ngIf='data.territory' class="terContain" #slidingList>
+  <ion-list *ngIf='data.territory && currentUser' class="terContain" #slidingList>
     <ion-item-sliding *ngFor="let terr of data.territory; let id = index">
       <ion-item (click)="folloving(id)"
                 lines="full">
@@ -79,10 +79,13 @@
   <ion-menu side="end" menuId="first">
     <ion-content>
       <ion-header *ngIf='currentUser'>
-        <span>Здравствуйте</span> {{this.currentUser.displayName}} <span>!</span>
+        <span>Здравствуйте</span> {{currentUser.displayName}} <span>!</span>
       </ion-header>
       <ion-list>
-        <ion-item>Администрирование</ion-item>
+        <ion-item
+        *ngIf='currentUser'
+        (click)='goToAdminPanel()'>
+        Администрирование</ion-item>
         <ion-item
           *ngIf='!currentUser'
           (click)='presentModalLogin();'>
@@ -90,7 +93,13 @@
         </ion-item>
         <ion-item
           *ngIf='currentUser'
-          (click)='logout()'>Выйти</ion-item>
+          (click)='presentModalLogout()'>
+          Выйти
+        </ion-item>
+        <ion-item
+          (click)='storageClear()'>
+          storageClear
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

@@ -20,7 +20,7 @@
     </ion-button>
     <ion-button
       *ngIf='terDetaiNameEdit'
-      (click)="this.dataSave.createJSON(this.data.territory); terDetaiNameEdit=false"
+      (click)="this.data.pushNewTerr(this.data.territory[this.data.terrIndex]); terDetaiNameEdit=false"
       class="myButton"
       color="success"
       fill="solid"
@@ -35,12 +35,21 @@
   <div class="terDetail__info clearfix">
     <p *ngIf='!terDetaiOwnEdit'>{{this.data.territory[this.data.terrIndex].own}}</p>
     <p *ngIf='terDetaiOwnEdit'>
-      <input [(ngModel)]='this.data.territory[this.data.terrIndex].own' type="text" name="" value="">
+      <input [(ngModel)]='this.data.territory[this.data.terrIndex].own'
+              type="text"
+              name=""
+              value=""
+              list="userList">
+      <datalist id="userList">
+        <option *ngFor="let user of users;"
+                value={{user.displayName}}>
+        </option>
+      </datalist>
     </p>
     <!-- Кнопка "Назначить участок" -->
     <ion-button
       *ngIf='!terDetaiOwnEdit'
-      (click)='terDetaiOwnEdit=true'
+      (click)='terDetaiOwnEdit=true; getCurrentOwnUser()'
       class='myButton'
       fill="solid"
       name="button"
@@ -51,7 +60,7 @@
     </ion-button>
     <ion-button
       *ngIf='terDetaiOwnEdit'
-      (click)="this.dataSave.createJSON(this.data.territory); terDetaiOwnEdit=false"
+      (click)="toAppoint(); terDetaiOwnEdit=false"
       class="myButton"
       color="success"
       fill="solid"

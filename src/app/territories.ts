@@ -1,5 +1,7 @@
 export class Terr {
   constructor (
+    public terrId: string,
+    public headUis: string,
     public name: string,
     public own: string,
     public pct: number,
